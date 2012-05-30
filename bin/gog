@@ -6,10 +6,14 @@ require 'gog'
 class Gog
   
   def self.start(args = ARGV)
-    first_arg = args[0].downcase
-    case first_arg
-    when "version"
-      $stdout.puts Gog.version
+    if args.empty?
+      $stdout.puts Gog.help
+    else
+      first_arg = args[0].downcase
+      case first_arg
+      when "version"
+        $stdout.puts Gog.version
+      end
     end
   end
 

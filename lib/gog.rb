@@ -7,5 +7,8 @@ class Gog
       require 'gog/version'
       "Gog #{Gog::VERSION}"
     end
+    def help
+      "to list a full changelog run:\n gog log"
+    end
   end
 end
