@@ -17,5 +17,10 @@ FactoryGirl.define do
     factory :commit_with_one_line_change do
       message ["Hello\n%Feature yes"]
     end
+
+    factory :commit_with_two_one_line_changes do
+      message ["Hello\n%Feature yes\n%Feature also yes"]
+    end
+
   end
 end
