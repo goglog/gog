@@ -1,24 +1,19 @@
 #!/usr/bin/env ruby
 # -*- mode: ruby -*-
 
-require 'grit'
+$LOAD_PATH << './lib'
+require 'gog'
 
 class Gog
   
-  def self.start
-    repo = Grit::Repo.new(".")
-    ARGV.each do|a|
-      puts "Argument: #{a}"
-    end  
-    puts "repo.commits: #{repo.commits.map(&:message)}"
+  def self.start(args = ARGV)
+    first_arg = args[0].downcase
+    case first_arg
+    when "version"
+      $stdout.puts Gog.version
+    end
   end
 
-  def version
-    require 'gog/version'
-    say "Gog #{Gog::VERSION}"
-  end
-
-
-  self.start
+  self.start(ARGV)
 
 end
