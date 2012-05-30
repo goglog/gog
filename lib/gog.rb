@@ -1,4 +1,5 @@
 require 'grit'
+require 'gog/commit'
 
 class Gog
   class << self
