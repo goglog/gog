@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+# -*- mode: ruby -*-
+
+require 'grit'
+
+class Gog
+  
+  def self.start
+    repo = Grit::Repo.new(".")
+    ARGV.each do|a|
+      puts "Argument: #{a}"
+    end  
+    puts "repo.commits: #{repo.commits.map(&:message)}"
+  end
+
+  def version
+    require 'gog/version'
+    say "Gog #{Gog::VERSION}"
+  end
+
+
+  self.start
+
+end
