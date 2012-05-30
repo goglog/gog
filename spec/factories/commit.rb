@@ -13,6 +13,9 @@ FactoryGirl.define do
     end
 
     initialize_with { new(repo, id, parents, tree, author, authored_date, committer, committed_date, message) }
-    
+
+    factory :commit_with_one_line_change do
+      message ["Hello\n%Feature yes"]
+    end
   end
 end
