@@ -13,6 +13,8 @@ class Gog
       case first_arg
       when "version"
         $stdout.puts Gog.version
+      when "log"
+        $stdout.puts Gog.log
       end
     end
   end

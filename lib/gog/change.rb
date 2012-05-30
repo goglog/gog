@@ -8,5 +8,9 @@ class Gog
       @header = header
       @message = message
     end    
+    
+    def to_s
+      "#{@header}: #{message}"
+    end
   end
 end
