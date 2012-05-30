@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 # -*- mode: ruby -*-
 
-$LOAD_PATH << './lib'
 require 'gog'
 
 class Gog
