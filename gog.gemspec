@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/gog/version', __FILE__)
+$:.push File.expand_path("../lib", __FILE__)
+require "gog/version"
 
 Gem::Specification.new do |s|
   s.add_development_dependency 'bundler', '~> 1.0'
