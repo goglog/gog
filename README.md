@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/goglog/gog.png?branch=master)](http://travis-ci.org/goglog/gog)
+
 # Gog: The Git Changelog
 
 Gog aims to help developers to insert changelog data inside git commits.
