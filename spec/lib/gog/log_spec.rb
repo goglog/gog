@@ -3,24 +3,38 @@ require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 describe Gog::Log do
 
   describe "Showing log" do
-    context "no change" do
-      let(:repo) { stubbed_empty_repo }
-      
-      it "shows empty changelog" do
-        log = Gog::Log.init repo
-        log.to_s.should eq("No changes found. Read https://github.com/goglog/gog for instructions.")
+    context "stubbed_repos" do
+      context "no change" do
+        let(:repo) { stubbed_empty_repo }
+
+        it "shows empty changelog" do
+          log = Gog::Log.init repo
+          log.to_s.should eq("No changes found. Read https://github.com/goglog/gog for instructions.")
+        end
+      end
+
+      context "changes" do
+        let(:repo) { stubbed_repo }
+
+        it "shows empty changelog" do
+          log = Gog::Log.init repo
+          log.to_s.should eq("Feature: yes\nFeature: also yes")
+        end
       end
     end
+    
+    context "submodule repo" do
+      context "tags" do
+        let(:repo) { FactoryGirl.build(:repo) }
 
-    context "changes" do
-      let(:repo) { stubbed_repo }
-      
-      it "shows empty changelog" do
-        log = Gog::Log.init repo
-        log.to_s.should eq("Feature: yes\nFeature: also yes")
+        it "shows first tags" do
+          log = Gog::Log.init repo
+          Gog::Log.repo_tags.first.name.should eq('0.0.1')
+          Gog::Log.repo_tags[1].name.should eq('0.0.2')
+        end
       end
+      
     end
-
   end
 
   private

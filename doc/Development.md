@@ -12,3 +12,12 @@ alias gogdev='Ruby -Ilib bin/gog'
 - Give more info with --help
 - Allow one line multiple words
 - Allow multiline changelogs
+
+# Test submodule
+
+Git submodules are necesary for testing purpose run :
+
+```
+git submodule init
+git submodule update
+```
