@@ -20,32 +20,38 @@ describe Gog::Log do
           log = Gog::Log.init repo
           log.to_s.should eq("Feature: yes\nFeature: also yes")
         end
-        
+
       end
     end
-    
+
     context "submodule repo" do
       context "tags" do
         let(:repo) { FactoryGirl.build(:repo) }
 
         it "shows first tags" do
-          log = Gog::Log.init repo
+          Gog::Log.init repo
           Gog::Log.repo_tags.first.name.should eq('0.0.1'), "Are you sure you included git submodule ?"
           Gog::Log.repo_tags[1].name.should eq('0.0.2')
         end
-        
+
         it 'finds closest tag for first change' do
-          log = Gog::Log.init repo
+          Gog::Log.init repo
           change = Gog::Log.changes.first
-          change.closest_tag.should eq(Gog::Log.repo_tags.last)
+          change.closest_tag.name.should eq('0.0.2')
+        end
+
+        it "show changes by tag" do
+          changes = %Q%{\"0.0.2\"=>[Enhancement: Readme in md format], \"0.0.1\"=>[Explaining: this repo]}%
+          Gog::Log.init repo
+          Gog::Log.changes_by_tag.inspect.should eq(changes)
         end
       end
-      
+
     end
   end
 
   private
-  
+
   def stubbed_empty_repo
     repo = double('repo')
     repo.stub(:commits){ [FactoryGirl.build(:commit)] }
