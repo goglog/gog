@@ -13,10 +13,13 @@ class Gog
       end
       @@commit_changes.select! { |change| !change.empty? }
       @@commit_changes.flatten!
-      @@commit_changes.sort_by! { |change| change.header }
       self
     end
-        
+    
+    def self.changes
+      @@commit_changes
+    end
+    
     def self.to_s
       if @@commit_changes.empty?
         'No changes found. Read https://github.com/goglog/gog for instructions.'
