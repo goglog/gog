@@ -11,7 +11,7 @@ class Gog
     
     def log
       require 'gog/log'
-      Gog::Log.new
+      Gog::Log.init
     end
     
     def help

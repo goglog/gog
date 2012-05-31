@@ -7,7 +7,7 @@ describe Gog::Log do
       let(:repo) { stubbed_empty_repo }
       
       it "shows empty changelog" do
-        log = Gog::Log.new repo
+        log = Gog::Log.init repo
         log.to_s.should eq("No changes found. Read https://github.com/goglog/gog for instructions.")
       end
     end
@@ -16,7 +16,7 @@ describe Gog::Log do
       let(:repo) { stubbed_repo }
       
       it "shows empty changelog" do
-        log = Gog::Log.new repo
+        log = Gog::Log.init repo
         log.to_s.should eq("Feature: yes\nFeature: also yes")
       end
     end
