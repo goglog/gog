@@ -1,11 +1,10 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "gog/version"
+# encoding: utf-8
+require File.expand_path('../lib/gog/version', __FILE__)
+
 
 Gem::Specification.new do |s|
   s.add_development_dependency 'bundler', '~> 1.0'
-  s.add_development_dependency 'rspec', '~> 2.3'
-  s.add_development_dependency 'grit', '~> 2.5'
+  s.add_dependency 'grit', '~> 2.5'
   s.authors = ['Thomas Darde']
   s.description = %q{A git changelog utility}
   s.email = 'gog@rougecardinal.fr'
