@@ -1,12 +1,12 @@
 class Gog
   class Change
 
-    attr_accessor :header, :message, :sha
+    attr_accessor :header, :message, :commit
     
-    def initialize(header, message, sha)
+    def initialize(header, message, commit)
       @header = header
       @message = message
-      @sha = sha
+      @commit = commit
     end    
     
     def to_s

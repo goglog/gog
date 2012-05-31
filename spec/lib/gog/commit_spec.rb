@@ -19,7 +19,7 @@ describe Gog::Commit do
           change = changes.first
           change.header.should eq('Feature')
           change.message.should eq('yes')
-          change.sha.should eq('2')
+          change.commit.sha.should eq('2')
         end
       end
 
