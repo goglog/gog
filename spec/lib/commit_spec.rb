@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Gog::Commit do
 
   describe "extract_changes" do
-    context "one line"
+    context "one line" do
       context "no change" do
         let(:commit) { FactoryGirl.build(:commit) }
         it "finds a change" do

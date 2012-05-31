@@ -1,5 +1,6 @@
 require 'grit'
 require 'gog/commit'
+require 'gog/log'
 
 class Gog
   class << self
