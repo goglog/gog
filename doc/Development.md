@@ -21,3 +21,12 @@ Git submodules are necesary for testing purpose run :
 git submodule init
 git submodule update
 ```
+
+# irb
+Launch irb
+
+alter load path
+`$LOAD_PATH << "lib"`
+
+require gog
+`require './lib/gog'`
