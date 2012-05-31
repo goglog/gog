@@ -19,12 +19,13 @@ describe Gog::Commit do
           change = changes.first
           change.header.should eq('Feature')
           change.message.should eq('yes')
+          change.sha.should eq('2')
         end
       end
 
       context "two changes" do
         let(:commit_with_two_one_line_changes) { FactoryGirl.build(:commit_with_two_one_line_changes) }
-        it "finds a change" do
+        it "finds two changes" do
           changes = Gog::Commit.extract_changes(commit_with_two_one_line_changes)
           changes.size.should eq(2)
           change = changes.last
