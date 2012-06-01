@@ -2,4 +2,4 @@ language: ruby
 bundler_args: --without development
 rvm:
   - 1.9.3
-script: bundle exec gog spec
+before_script: git clone git://github.com/goglog/gog_test_repo.git spec/gog_test_repo

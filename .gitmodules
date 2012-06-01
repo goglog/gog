@@ -1,3 +1,0 @@
-[submodule "spec/gog_test_repo"]
-  path = spec/gog_test_repo
-  url = git://github.com/goglog/gog_test_repo.git

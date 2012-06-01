@@ -13,13 +13,12 @@ alias gogdev='Ruby -Ilib bin/gog'
 - Allow one line multiple words
 - Allow multiline changelogs
 
-# Test submodule
+# Gog test repo
 
-Git submodules are necesary for testing purpose run :
+A real git repository is necesary for testing purpose. Git submodule is not sufficient, run :
 
 ```
-git submodule init
-git submodule update
+git clone git://github.com/goglog/gog_test_repo.git spec/gog_test_repo
 ```
 
 # irb

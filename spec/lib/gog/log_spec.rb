@@ -24,13 +24,13 @@ describe Gog::Log do
       end
     end
 
-    context "submodule repo" do
+    context "real test repo" do
       context "tags" do
         let(:repo) { FactoryGirl.build(:repo) }
 
         it "shows first tags" do
           Gog::Log.init repo
-          Gog::Log.repo_tags.first.name.should eq('0.0.1'), "Are you sure you included git submodule ?"
+          Gog::Log.repo_tags.first.name.should eq('0.0.1'), "Are you sure you cloned the sub repo (see developemnt.md)?"
           Gog::Log.repo_tags[1].name.should eq('0.0.2')
         end
 

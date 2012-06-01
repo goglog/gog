@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :repo, class: Grit::Repo do
     ignore do
-      path '../gog_test_repo'
+      path (File.dirname(__FILE__) + '/../gog_test_repo')
     end
 
     initialize_with { new(path) }
