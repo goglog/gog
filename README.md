@@ -5,6 +5,8 @@
 Gog aims to help developers to insert changelog data inside git commits.
 Gog allows to create changelogs based on commit data and tagged commits.
 
+## This is still alpha software !
+
 # Syntax
 
 They are different ways to create changelog entries:
