@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.version = Gog::VERSION
 
   s.add_dependency 'grit', '~> 2.5'
+  s.add_development_dependency 'bundler', '~> 1.0'
   s.authors = ['Thomas Darde']
   s.description = %q{A git changelog utility}
   s.email = 'gog@rougecardinal.fr'

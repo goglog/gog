@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gemspec
 
+gem 'grit'
+
 group :test do
-  gem 'grit'
   gem 'rake'
   gem 'guard'
   gem 'rspec'
