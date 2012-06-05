@@ -29,3 +29,11 @@ alter load path
 
 require gog
 `require './lib/gog'`
+
+# Rubygem deployment
+
+- Update version in version.rb
+- Update changelog in version.rb
+- Tag Repository in git
+- `gem build gog.gemspec`
+- `gem push gog-1.X.0.gem`

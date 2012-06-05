@@ -8,6 +8,7 @@ class Gog
 
     class << self
 
+
       def init(repo = Grit::Repo.new("."))
         @@repo = repo
         @@changes = @@repo.commits.map do |commit|
