@@ -24,11 +24,19 @@ class Gog
       end
 
       def changes_by_tag
-        tags = Hash.new()
+        reversed_tags = Hash.new
+        tags = Hash.new
         @@changes.each do |change|
-          tag_name = change.closest_tag.name
-          tags[tag_name] = [] unless tags[tag_name]
-          tags[tag_name] << change
+          tag_name = change.closest_parent_tag_name
+          reversed_tags[tag_name] = [] unless reversed_tags[tag_name]
+          reversed_tags[tag_name] << change
+        end
+        tags_array = reversed_tags.to_a
+        tags_array.each_with_index do |tag_and_changes, index|
+          tag = tag_and_changes[0]
+          changes = tag_and_changes[1]
+          new_tag = index > 0 ? tags_array[index - 1][0] : 'Unreleased'
+          tags[new_tag] = changes
         end
         tags
       end
@@ -37,7 +45,7 @@ class Gog
         if @@changes.empty?
           'No changes found. Read https://github.com/goglog/gog for instructions.'
         else
-          @@changes.join("\n")
+          @@changes.join "\n"
         end
       end
 

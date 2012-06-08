@@ -37,11 +37,12 @@ describe Gog::Log do
         it 'finds closest tag for first change' do
           Gog::Log.init repo
           change = Gog::Log.changes.first
-          change.closest_tag.name.should eq('0.0.2')
+          change.closest_parent_tag_name.should eq('0.0.3')
         end
 
         it "show changes by tag" do
-          changes = %Q%{\"0.0.2\"=>[Enhancement: Readme in md format], \"0.0.1\"=>[Explaining: this repo]}%
+          changes = %Q%{\"0.0.2\"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.], \"0.0.1\"=>[Enhancement: Readme in md format], \"0.0.0\"=>[Explaining: this repo]}%
+          changes = %Q%{\"Unreleased\"=>[Feature: Unreleased change], \"0.0.3\"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.], \"0.0.2\"=>[Enhancement: Readme in md format], \"0.0.1\"=>[Explaining: this repo]}%
           Gog::Log.init repo
           Gog::Log.changes_by_tag.inspect.should eq(changes)
         end

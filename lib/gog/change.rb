@@ -9,8 +9,8 @@ class Gog
       @commit = commit
     end
 
-    def closest_tag
-      @closest_tag ||= find_closest_tag
+    def closest_parent_tag_name
+      @closest_parent_tag_name ||= find_closest_parent_tag_name
     end
 
     def to_s
@@ -19,7 +19,7 @@ class Gog
 
     private
 
-    def find_closest_tag
+    def find_closest_parent_tag_name
       available_tags = Gog::Log.repo_tags
       return if available_tags.empty?
 
@@ -28,13 +28,16 @@ class Gog
         available_tags_by_sha[tag.commit.sha] = tag
       end
 
-      Change.find_tag_in_self_or_parents(self, available_tags_by_sha)
+      Change.find_tag_name_in_self_or_parents(self.commit.parents, available_tags_by_sha)
     end
 
-    def self.find_tag_in_self_or_parents(change, tags)
-      tag = tags[change.commit.sha]
-      tag || find_tag_in_self_or_parents(change.parents.first, tags)
+    def self.find_tag_name_in_self_or_parents(commits, tags)
+      return '0.0.0' if commits.empty?
+      commit = commits.first
+      tag = tags[commit.sha]
+      tag ? tag.name : find_tag_name_in_self_or_parents(commit.parents, tags)
     end
-
+    
+    
   end
 end
