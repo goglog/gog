@@ -8,14 +8,14 @@ class Gog
       require 'gog/version'
       "Gog #{Gog::VERSION}"
     end
-    
+
     def log
       require 'gog/log'
       Gog::Log.init
     end
-    
+
     def help
-      "to list a full changelog run:\n gog log"
+      "to list a full changelog run:\n gog log.\nUse gog_engine gem for gog engine."
     end
   end
 end
