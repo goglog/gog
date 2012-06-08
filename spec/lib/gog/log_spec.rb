@@ -41,8 +41,7 @@ describe Gog::Log do
         end
 
         it "show changes by tag" do
-          changes = %Q%{\"0.0.2\"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.], \"0.0.1\"=>[Enhancement: Readme in md format], \"0.0.0\"=>[Explaining: this repo]}%
-          changes = %Q%{\"Unreleased\"=>[Feature: Unreleased change], \"0.0.3\"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.], \"0.0.2\"=>[Enhancement: Readme in md format], \"0.0.1\"=>[Explaining: this repo]}%
+          changes = %Q%{\"Unreleased\"=>{\"Feature\"=>[Feature: Unreleased change]}, \"0.0.3\"=>{\"Feature\"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.]}, \"0.0.2\"=>{\"Enhancement\"=>[Enhancement: Readme in md format]}, \"0.0.1\"=>{\"Explaining\"=>[Explaining: this repo]}}%
           Gog::Log.init repo
           Gog::Log.changes_by_tag.inspect.should eq(changes)
         end

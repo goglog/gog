@@ -36,9 +36,9 @@ class Gog
         tags_array = reversed_tags.to_a
         tags_array.each_with_index do |tag_and_changes, index|
           tag = tag_and_changes[0]
-          changes = tag_and_changes[1]
+          tag_changes = tag_and_changes[1]
           new_tag = index > 0 ? tags_array[index - 1][0] : 'Unreleased'
-          tags[new_tag] = changes
+          tags[new_tag] = changes_sorted_by_header(tag_changes)
         end
         tags
       end
@@ -49,6 +49,14 @@ class Gog
         else
           @@changes.join "\n"
         end
+      end
+
+      def changes_sorted_by_header(changes)
+        sorted_changes  = Hash.new {|h,k| h[k] = [] }
+        changes.each do |change|
+          sorted_changes[change.header] << change
+        end
+        sorted_changes
       end
 
       def repo_tags
