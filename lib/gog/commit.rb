@@ -4,7 +4,9 @@ ONE_LINE_ONE_WORD_REGEX = /^\%([^\s]+)\s(.*)$/
 
 class Gog
   module Commit
-
+    
+    # Extract all changes in a commit
+    
     def self.extract_changes(commit)
       message = commit.message
       matched = message.scan(ONE_LINE_ONE_WORD_REGEX)
