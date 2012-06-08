@@ -1,0 +1,1 @@
+{"Unreleased"=>{"Feature"=>[Feature: Unreleased change]}, "0.0.3"=>{"Feature"=>[Feature: Le changement c'est maintenant !., Feature: Needed change.]}, "0.0.2"=>{"Enhancement"=>[Enhancement: Readme in md format]}, "0.0.1"=>{"Explaining"=>[Explaining: this repo]}}
