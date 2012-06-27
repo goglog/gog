@@ -45,6 +45,12 @@ describe Gog::Log do
           Gog::Log.init repo
           Gog::Log.changes_by_tag.inspect.should eq(changes)
         end
+        
+        it "finds a tag not on master" do
+          Gog::Log.init repo
+          Gog::Log.changes_by_tag["Unreleased"]["Feature"].map(&:to_s).should include("Feature: That's cool !")
+        end
+        
       end
 
     end
