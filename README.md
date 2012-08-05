@@ -5,6 +5,9 @@
 Gog aims to help developers to insert changelog data inside git commits.
 Gog allows to create changelogs based on commit data and tagged commits.
 
+You can find a short presentation here : [Gog lightning talk at Rulu](http://www.youtube.com/watch?v=dD3Ga8b9xTw)
+This presentation was made a [Rulu](http://rulu.eu).
+
 ## This is still alpha software !
 - You can help !
 - Better tag managemnt
