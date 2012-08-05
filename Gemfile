@@ -5,6 +5,7 @@ gemspec
 gem 'grit'
 
 group :test do
+  gem 'simplecov', require: false
   gem 'rake'
   gem 'guard'
   gem 'rspec'
